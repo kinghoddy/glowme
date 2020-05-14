@@ -1,0 +1,143 @@
+.header {
+  min-height: 30rem;
+  background: linear-gradient(to bottom, rgba(0, 1, 1, 0.6), rgba(1, 1, 1, 0.6)),
+    url("/banner.jpg");
+  position: relative;
+  background-size: cover;
+  border: 0 !important;
+  padding-bottom: 8rem;
+  padding-top: 8rem;
+}
+.header h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.header_bottom {
+  display: inline-block;
+  border: 0;
+  position: absolute;
+  background: url("/wave.svg") transparent;
+  background-size: cover;
+  transform: rotateX(180deg);
+  height: 8rem;
+  width: 100%;
+  bottom: -1px;
+}
+.section {
+  padding: 2rem 0;
+}
+.section h3 {
+  color: #000;
+  font-weight: bold;
+}
+.section h4 {
+  text-transform: uppercase;
+  color: black;
+}
+.heading {
+  background: linear-gradient(to right, #fa0, #f99);
+  font-weight: bold;
+  font-size: 1.6rem;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  text-transform: capitalize;
+  text-align: center;
+  color: transparent;
+  font-family: "Delius Swash Caps", cursive !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  position: relative;
+  padding-top: 2rem;
+  transition: all 0.3s;
+  display: table;
+  margin: auto;
+}
+.heading:hover {
+  transform: skew(32deg);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.heading::after {
+  content: "";
+  width: 15rem;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    #ddd,
+    #ddd 30%,
+    #f10 30%,
+    #f10 70%,
+    #ddd 70%
+  );
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+.gallery_con {
+  height: 15rem;
+  /* background: #d63; */
+}
+.gallery {
+  position: absolute;
+  transition: all 0.3s;
+  height: 8rem;
+  width: calc(50% - 1.5rem);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.gallery:hover {
+  transform: scale(1.1) translateY(-1rem);
+  z-index: 100;
+  outline: #fa0 dotted 5px;
+  outline-offset: 1rem;
+}
+.gallery img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.gallery:nth-child(1) {
+  left: 1rem;
+  top: 1rem;
+}
+.gallery:nth-child(2) {
+  top: 3rem;
+  right: 1rem;
+}
+.gallery:nth-child(3) {
+  left: 20%;
+  bottom: 1rem;
+}
+@media only screen and (min-width: 760px) {
+  .header {
+    min-height: 70vh;
+  }
+  .heading {
+    font-size: 1.8rem;
+  }
+  .gallery_con {
+    height: 28rem;
+  }
+  .gallery {
+    width: calc(50% - 1.5rem);
+    height: 15rem;
+  }
+  .gallery:nth-child(3) {
+    left: 27%;
+    bottom: 1rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .header {
+    min-height: 80vh;
+  }
+  .heading {
+    font-size: 2rem;
+  }
+  .gallery_con {
+    height: 18rem;
+  }
+  .gallery {
+    width: calc(50% - 1.5rem);
+    height: 10rem;
+  }
+}

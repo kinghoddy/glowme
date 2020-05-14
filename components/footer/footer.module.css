@@ -1,0 +1,51 @@
+.footer {
+  margin-top: 3rem;
+  position: relative;
+  padding-top: 8rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/banner.jpg");
+  background-size: cover;
+  backdrop-filter: blur(5rem);
+}
+.footer h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #000;
+}
+.footer li {
+  color: #fff;
+}
+.header_bottom {
+  display: inline-block;
+  border: 0;
+  position: absolute;
+  background: url("/wave.svg") transparent;
+  background-size: cover;
+  height: 8rem;
+  width: 100%;
+  top: -1px;
+}
+.links {
+  list-style: none;
+  padding: 0;
+}
+.links a {
+  color: #fff;
+}
+.additional_links {
+  list-style: none;
+}
+.additional_links > * {
+  display: inline;
+  padding: 0 1rem;
+  border-right: 1px solid #ddd;
+}
+.additional_links a {
+  color: #fff;
+}
+
+.logo {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+}

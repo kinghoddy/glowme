@@ -1,0 +1,33 @@
+body {
+  background: #f7f7f7;
+}
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+::-webkit-scrollbar-thumb {
+  background: #777;
+}
+
+a {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bubblegum Sans", cursive;
+}
+
+/* 
+
+
+*/

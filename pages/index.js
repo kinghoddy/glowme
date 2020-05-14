@@ -1,203 +1,154 @@
-import Head from 'next/head'
+import React, { useState, useEffect } from 'react'
+import Layout from '../components/layout/layout';
+import classes from './index.module.css'
+import Toolbar from '../components/toolbar/toolbar'
+import Card from '../components/post/card';
+import Link from 'next/link'
 
-const Home = () => (
-  <div className="container">
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
 
-    <main>
-      <h1 className="title">
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+export default props => {
 
-      <p className="description">
-        Get started by editing <code>pages/index.js</code>
-      </p>
+  const [scrolled, setScrolled] = useState(false)
+  const [products, updateProducts] = useState([{
+    name: 'Glowing herbal soap oapoap  poappoap',
+    features: ["Features of this product", "Features of this product res of this product", "res of this productres of this productFeatures of this product"],
+    src: '/img/p1.jpg',
+    price: 2000
+  },
+  {
+    name: 'Glowing herbal soap',
+    src: '/img/p2.jpg',
+    features: ["Features of this product", "Features of this product", "Features of this product", "Features of this product"],
+    price: 2000
+  },
+  {
+    name: 'Glowing herbal soap',
+    src: '/img/p3.jpg',
+    features: ["Features of this product", "Features of this product", "Features of this product"],
+    price: 2000
+  }
+  ])
+  useEffect(() => {
 
-      <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className="card"
-        >
-          <h3>Deploy &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with ZEIT Now.
-          </p>
-        </a>
+    if (document.documentElement.scrollTop > 11) {
+      setScrolled(true)
+    } else {
+      setScrolled(false)
+    }
+    window.addEventListener('scroll', e => {
+      if (document.documentElement.scrollTop > 11) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    })
+  })
+  return <Layout hideToolbar title="Home | glowme skin scare">
+    <Toolbar background="none" scrolled={scrolled} />
+    <header className={classes.header}>
+      <div className="container py-5">
+        <div className="row">
+          <div className="col-lg-6 ">
+            <h1 className="text-white fadeInDown wow font-weight-bold"> Let your skin introduce you</h1>
+            <Link href="tel:+2348091173778"><a className="btn align-items-center d-flex w-50 justify-content-center btn-outline-light btn-lg rounded-pill"> <i className="material-icons mr-5">phone</i> Call Now</a></Link>
+          </div>
+          <div className="col-lg-6 d-flex align-items-center justify-content-center py-3 py-lg-0">
+            {/* <img src="/google.png" className="img-fluid" /> */}
+            <div class="elfsight-app-feedc6cb-102e-47a7-bc4e-ceded89477c0"></div>
+          </div>
+        </div>
       </div>
-    </main>
 
-    <footer>
-      <a
-        href="https://zeit.co?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
-      </a>
-    </footer>
+      <span className={classes.header_bottom}></span>
+    </header>
 
-    <style jsx>{`
-      .container {
-        min-height: 100vh;
-        padding: 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
 
-      main {
-        padding: 5rem 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+    <section className={classes.section}>
+      <div className="container">
+        <h1 className={classes.heading}>About glowme skin polish</h1>
+        <div className="row pt-3">
+          <div className="col-12 col-lg-6 pt-lg-5">
+            <h4 >How its made </h4>
+            <p>
+              Glowme products are 100% organic, it's the combination of purely natural fruit that is formulated to improve your skin tone and solve all your skin problem
+            </p>
+            <h4 className="mt-3">Why choose glowme </h4>
+            <p>
+              Glowme products are the best you can get in the skincare market because the fruits are carefully selected to suit your skin without having any  blemish
+              Glowme has different types of products to give you your desired tone.
+              Glowme does not bleach your skin but can give you some lighter shade as you so desire
+            </p>
+          </div>
+          <div className={classes.gallery_con + " col-12 col-lg-6 position-relative"}>
+            <div className={classes.gallery + " wow fadeInUp fast"}><img src="/img/p1.jpg" alt="" /></div>
+            <div className={classes.gallery + " wow fadeInUp slow"}><img src="/img/p2.jpg" alt="" /></div>
+            <div className={classes.gallery + " wow slideInUp slow"} style={{ animationDelay: ".5s" }}><img src="/img/p3.jpg" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      footer {
-        width: 100%;
-        height: 100px;
-        border-top: 1px solid #eaeaea;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    <section className={classes.section}>
+      <div className="container">
+        <h1 className={classes.heading}>Our products </h1>
+        <div className="row py-5">
+          {products.map(cur => (
+            <div className="col-md-6 col-lg-4 py-3 py-lg-0">
+              <Card {...cur} />
+            </div>
+          ))}
+        </div>
+        <div className="row justify-content-center py-3">
+          <Link href="/">
 
-      footer img {
-        margin-left: 0.5rem;
-      }
+            <a className="btn btn-danger  text-capitalize">view more -></a>
+          </Link>
+        </div>
+      </div>
+    </section>
+    <section className={classes.section}>
+      <div className="container">
+        <div className="row">
+          <div className="pb-3 fadeIn wow col-lg-6">
+            <h3>WHAT IS THE TERM SKINCARE???</h3>
+            <p>
+              Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.
+      </p>
+            <h3>DIFFERENT SKIN TYPES</h3>
+            <p>
+              There are five common skin types: normal, oily, dry, combination and sensitive. Blotting a clean tissue on your face in the morning is an easy way to find out your skin type.
+<br />
+              <br />
+              A normal skin type has good circulation and there will not be any trace of sebum (or oil) on the tissue. Normal skin is soft, with a smooth, even skin tone.
+            </p>
+          </div>
+          <div className="pb-3 fadeIn wow col-lg-6"></div>
+          <div className="pb-3 fadeIn wow col-lg-6"></div>
+          <div className="pb-3 fadeIn wow col-lg-6">
+            <p>
+              An oily skin type will leave blots of facial oil on the tissue, particularly from the cheeks, nose and forehead. This type of skin has overactive sebaceous glands, producing more oil than necessary. Oily skin can be caused by hereditary factors, diet, hormone levels, pregnancy, unsuitable cosmetics and stress, leading to acne flare ups and enlarged pores. It is vital to thoroughly clean the skin regularly with gentle, soap-free cleansers.
+            </p>
+            <p>
+              A dry skin type has a low level of sebum and does not maintain oil easily. Dry skin is often flaky and feels tight after being wiped. Gentle cleansing and a rich protective moisturiser for dry skin is essential to control that tight, uncomfortable feeling. It may be necessary to adjust your dry skin moisturiser for the changing seasons With.
+            </p>
+          </div>
+          <div className="pb-3 fadeIn wow col-lg-6">
+            <p>
 
-      footer a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+              A combination skin type oil is produced around the 'T-zone' of the  nose and forehead but not on the cheeks, mouth and eye areas. The best skin care for combination skin will involve treating each region differently.
+<br />
+              <br />
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+              Having a sensitive skin type can mean different things to different people. It can be caused by skin conditions such as rosacea, eczema or allergies. Sensitive skin can become inflamed and irritated easily. It is important to choose the right skin care products for sensitive skin because many cleansers and moisturisers contain ingredients that can cause an adverse reactions to this skin..
+<br />
+              <br />
 
-      .title a {
-        color: #0070f3;
-        text-decoration: none;
-      }
+              Basically our skins all fall in either of d sections above👆
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </Layout>
 
-      .title a:hover,
-      .title a:focus,
-      .title a:active {
-        text-decoration: underline;
-      }
-
-      .title {
-        margin: 0;
-        line-height: 1.15;
-        font-size: 4rem;
-      }
-
-      .title,
-      .description {
-        text-align: center;
-      }
-
-      .description {
-        line-height: 1.5;
-        font-size: 1.5rem;
-      }
-
-      code {
-        background: #fafafa;
-        border-radius: 5px;
-        padding: 0.75rem;
-        font-size: 1.1rem;
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
-
-      .grid {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        max-width: 800px;
-        margin-top: 3rem;
-      }
-
-      .card {
-        margin: 1rem;
-        flex-basis: 45%;
-        padding: 1.5rem;
-        text-align: left;
-        color: inherit;
-        text-decoration: none;
-        border: 1px solid #eaeaea;
-        border-radius: 10px;
-        transition: color 0.15s ease, border-color 0.15s ease;
-      }
-
-      .card:hover,
-      .card:focus,
-      .card:active {
-        color: #0070f3;
-        border-color: #0070f3;
-      }
-
-      .card h3 {
-        margin: 0 0 1rem 0;
-        font-size: 1.5rem;
-      }
-
-      .card p {
-        margin: 0;
-        font-size: 1.25rem;
-        line-height: 1.5;
-      }
-
-      @media (max-width: 600px) {
-        .grid {
-          width: 100%;
-          flex-direction: column;
-        }
-      }
-    `}</style>
-
-    <style jsx global>{`
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-    `}</style>
-  </div>
-)
-
-export default Home
+}
